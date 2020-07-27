@@ -1,0 +1,17 @@
+//上書きCSS
+
+.ogcc-wrap{
+  &.is_02{
+    max-width: 800px;
+    .ogcc-direction_part.is_top{
+      border-top-color: #000;
+      border-right-color: #000;
+    }
+    .ogcc-hoverContent{
+      background: #49e;
+      &::before{
+        border-left-color:#49e;
+      }
+    }
+  }
+}

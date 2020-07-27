@@ -1,0 +1,4 @@
+node_modules/
+wp-includes/
+wp-admin/
+*/.DS_Store

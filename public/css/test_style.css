@@ -1,0 +1,16 @@
+.ogcc-wrap.is_02 {
+  max-width: 800px;
+}
+
+.ogcc-wrap.is_02 .ogcc-direction_part.is_top {
+  border-top-color: #000;
+  border-right-color: #000;
+}
+
+.ogcc-wrap.is_02 .ogcc-hoverContent {
+  background: #49e;
+}
+
+.ogcc-wrap.is_02 .ogcc-hoverContent::before {
+  border-left-color: #49e;
+}

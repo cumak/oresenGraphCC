@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>oresenGraphCC test</title>
+  <meta name="description" content="oresenGraphCCのテスト">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="css/oresenGraphCC.css">
+  <link rel="stylesheet" href="css/test_style.css">
+</head>
+<body>
+  <div id="container" lang="ja">
+    <div class="ogcc-wrap is_01">
+      <canvas id="ogcc-canvas"></canvas>
+    </div>
+    <div class="ogcc-wrap is_02">
+      <canvas id="ogcc-canvas2"></canvas>
+    </div>
+  </div><!--container-->
+  <button id="refresh">グラフ1をリフレッシュ</button>
+  
+
+  <script src="js/createjs.min.js" defer></script>
+  
+  <!-- <script src="js/oresenGraphCC.js"></script> -->
+  <!-- for webpack -->
+  <script src="js/index.js" defer></script>
+
+
+  <script>
+    const allGraphData = [
+      [3, 12, 45, 3, 15, '', 20, 45]
+    ];
+    // oresenGraphCC(allGraphData)
+  </script>
+</body>
+</html>

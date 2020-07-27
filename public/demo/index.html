@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>oresenGraphCC test</title>
+  <meta name="description" content="oresenGraphCCのテスト">
+  <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="../css/oresenGraphCC.css">
+  <link rel="stylesheet" href="../css/demo.css">
+</head>
+<body>
+  <div id="container" lang="ja">
+    <h1>Sample</h1>
+    <section class="sectionWrap">
+      <h2>サンプル１</h2>
+      <div class="ogcc-wrap is_01">
+        <canvas id="ogcc-canvas-01"></canvas>
+      </div>
+      <button id="refresh">グラフ1をリフレッシュ</button>
+    </section>
+    <section class="sectionWrap">
+      <h2>サンプル２ (オプションなし)</h2>
+      <div class="ogcc-wrap is_02">
+        <canvas id="ogcc-canvas"></canvas>
+      </div>
+    </section>
+    <section class="sectionWrap">
+      <h2>サンプル３ (幅変更、CSS調整)</h2>
+      <div class="ogcc-wrap is_03">
+        <canvas id="ogcc-canvas-03"></canvas>
+      </div>
+    </section>
+  </div><!--container-->
+  
+
+  <script src="../js/createjs.min.js"></script>
+  
+  <script src="../js/oresenGraphCC.js"></script>
+  <!-- for webpack -->
+  <!-- <script src="../js/index.js" defer></script> -->
+
+
+  <script>
+    // サンプル１
+    const allGraphData_01 = [
+      [3, 12, 45, 3, 15, 10, 20, 45],
+      [10,23,20,40,35,5,0,12]
+    ];
+    const option_01 = {
+      canvasId:'ogcc-canvas-01',
+      graphTitle:true,
+      responsiveType:'aspect',//'x-only'→x軸のみ縮小、'aspect'→縦横比を保ったまま縮小
+      y: {
+        unit: '人',//単位
+        memoriInterval: 5,//目盛りのインターバル
+      },
+      x: {
+        unit: '年',//単位
+        memoriInterval: 5,//目盛りのインターバル
+        memoriFirstNum: 1980,//メモリの始めの数字
+        // memoriCount: 13,//横軸の目盛りの数
+        gridCount: 10,//1目盛りに何マスあるか
+        // gridBoldCount: 2,//1目盛りに太い線が何マスあるか
+        // memoriCustomText: '約[n]くらい',//メモリのテキストを編集 [n]メモリの数字が入る
+        // memoriList: ['月', '火', '水', '木', '金', '土', '日'],//メモリのリストを任意のものに編集(memoriCountは強制的に無効、memoriIntervalは強制的に1に)
+      },
+      graph:[
+        {
+          graphName: 'グラフ１',
+          dotColor: '#ff9fb3',
+          dotSize: 10,
+          dotStyle: 'rect',
+          lineColor: '#ff9fb3',
+          lineStroke: 3,
+          lineType: 'curve',
+          hoverCustomText: '[x][unitX]：約[y][unitY]',//hoverのテキストを編集 [y]=メモリのy軸の値、[x]=メモリのx軸の値、[unitY]=メモリのY軸の単位、[unitX]=x軸の単位が入る
+          graphFirstMemori: 1980,//グラフデータの始めの数字はX軸の何メモリから始まるか
+        },
+        {
+          graphName: 'グラフ２',
+          dotColor: '#1f9fb3',
+          dotSize: 10,
+          // dotStyle: 'rect',
+          lineColor: '#1f9fb3',
+          lineStroke: 3,
+          lineType: 'curve',
+          hoverCustomText: '[x][unitX]：[y][unitY]',//hoverのテキストを編集 [y]=メモリのy軸の値、[x]=メモリのx軸の値、[unitY]=メモリのY軸の単位、[unitX]=x軸の単位が入る
+          graphFirstMemori: 1980,//グラフデータの始めの数字はX軸の何メモリから始まるか
+        }
+      ],
+    };
+    let graph_01 = oresenGraphCC(allGraphData_01,option_01)
+    const refreshBtn = document.getElementById('refresh');
+    refreshBtn.addEventListener('click', refresh);
+    function refresh() {
+      //例えばグラフ１の点の色をランダムにしてリフレッシュ
+      let cl = "rgb(" + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ", " + (~~(256 * Math.random())) + ")";
+      option_01.graph[0].dotColor = cl;
+      option_01.graph[0].lineColor = cl;
+      graph_01 = oresenGraphCC(allGraphData_01, option_01, graph_01)
+    }
+
+    // サンプル２
+    const allGraphData_02 = [
+      [3, 32, 45, 35, 20, 15, 20, 32]
+    ];
+    oresenGraphCC(allGraphData_02)
+
+    // サンプル３
+    const allGraphData_03 = [
+      [3100,3104,4120,5200,4156,3178,2190]
+    ];
+    const option_03 = {
+      canvasId: 'ogcc-canvas-03',
+      graphTitle: true,//凡例の有無
+      zoom:false,
+      graphDirection: false,//矢印の有無
+      y:{
+        unit:'歩',
+        memoriInterval: 500,//目盛りのインターバル
+      },
+      x: {
+        unit: '曜日',//単位
+        memoriList: ['月', '火', '水', '木', '金', '土', '日'],//メモリのリストを任意のものに編集(memoriCountは強制的に無効、memoriIntervalは強制的に1に)
+      },
+      graph: [
+        {
+          graphName: '歩数',
+          dotColor: '#8c419e',
+          dotSize: 10,
+          dotStyle: 'rect',
+          lineColor: '#8c419e',
+          lineStroke: 2,
+          lineType: 'curve',
+          hoverCustomText: '[x][unitX]：[y][unitY]',//hoverのテキストを編集 [y]=メモリのy軸の値、[x]=メモリのx軸の値、[unitY]=メモリのY軸の単位、[unitX]=x軸の単位が入る
+        }
+      ]
+    }
+    oresenGraphCC(allGraphData_03,option_03)
+  </script>
+</body>
+</html>
