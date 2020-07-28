@@ -133,7 +133,7 @@ oresenGraphCC(allGraphData, option);
 | canvasBottom | 10 | グラフの下の余白 |
 | gridStroke | 0.5 | グリッドの線の太さ（0の場合はグリッドなし） |
 | gridEmStroke | gridStroke + 1 | グリッド(太線)の線の太さ（0の場合はグリッドなし） |
-| grid_color | #ddd | グリッドの色 |
+| gridColor | #ddd | グリッドの色 |
 | zoom | true | ズーム機能の有無。true→x,y,xyすべてあり、xy→xyのみ、x→xのみ、y→yのみ、false→すべてなし |
 | graphTitle | false | 凡例の有無 |
 | graphDirection | true | 上下左右移動矢印の有無 |

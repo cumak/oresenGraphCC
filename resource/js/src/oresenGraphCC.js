@@ -23,7 +23,7 @@ const oresenGraphCC = (allGraphData, option, currentGraph) => {
   const canvasBottom = option.canvasBottom ?? 10;
   const gridStroke = option.gridStroke ?? .5;
   const gridEmStroke = option.gridEmStroke ?? gridStroke + 1;
-  const grid_color = option.grid_color ?? '#ddd';
+  const gridColor = option.gridColor ?? '#ddd';
   const zoom = option.zoom ?? true;
   const graphTitle = option.graphTitle ?? false;
   const graphDirection = option.graphDirection ?? true;
@@ -316,7 +316,7 @@ const oresenGraphCC = (allGraphData, option, currentGraph) => {
         // グリッド（横線）
         for (let i = 0; i < gridAllCountY; i++) {
           let grid_tate = new createjs.Graphics();
-          grid_tate.beginStroke(grid_color);
+          grid_tate.beginStroke(gridColor);
           grid_tate.setStrokeStyle(gridStroke);
           const y = gridOneHeight * i;
           grid_tate.moveTo(canvasLeft, y + canvasTop).lineTo(canvasX + canvasLeft, y + canvasTop).endStroke();
@@ -326,7 +326,7 @@ const oresenGraphCC = (allGraphData, option, currentGraph) => {
         // グリッド（縦線）
         for (let i = 0; i <= gridAllCountX; i++) {
           let grid_yoko = new createjs.Graphics();
-          grid_yoko.beginStroke(grid_color);
+          grid_yoko.beginStroke(gridColor);
           grid_yoko.setStrokeStyle(gridStroke);
           const x = gridOneWidth * i + canvasLeft;
           grid_yoko.moveTo(x, 0).lineTo(x, jiku_height).endStroke();
@@ -341,7 +341,7 @@ const oresenGraphCC = (allGraphData, option, currentGraph) => {
         let grid_em_tate_one_haba = (jiku_height - canvasTop) / grid_em_kazu_tate;
         for (let i = 0; i <= grid_em_kazu_tate; i++) {
           let grid_em_tate = new createjs.Graphics();
-          grid_em_tate.beginStroke(grid_color);
+          grid_em_tate.beginStroke(gridColor);
           grid_em_tate.setStrokeStyle(gridEmStroke);
           const y = grid_em_tate_one_haba * i;
           grid_em_tate.moveTo(0, y + canvasTop).lineTo(canvasX + canvasLeft, y + canvasTop).endStroke();
@@ -353,7 +353,7 @@ const oresenGraphCC = (allGraphData, option, currentGraph) => {
         let grid_em_yoko_one_haba = (jiku_width - canvasRight) / grid_em_kazu_yoko;
         for (let i = 0; i <= grid_em_kazu_yoko; i++) {
           let grid_em_yoko = new createjs.Graphics();
-          grid_em_yoko.beginStroke(grid_color);
+          grid_em_yoko.beginStroke(gridColor);
           grid_em_yoko.setStrokeStyle(gridEmStroke);
           const x = grid_em_yoko_one_haba * i + canvasLeft;
           grid_em_yoko.moveTo(x, 0).lineTo(x, jiku_height + canvasBottom).endStroke();

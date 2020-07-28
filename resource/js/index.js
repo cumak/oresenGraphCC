@@ -12,7 +12,7 @@ const option = {
   // canvasBottom: 10,
   // gridStroke: 0,//グリッドの線の太さ（0の場合はグリッドなし）
   // gridEmStroke: 2,//グリッド(太線)の線の太さ（0の場合はグリッドなし）
-  // grid_color: '',
+  // gridColor: '',
   // zoom:false,//true→x,y,xy、xy→xyのみ、x→xのみ、y→yのみ、false→すべてなし
   graphTitle: true,//凡例の有無
   // graphDirection: false,//矢印の有無
@@ -74,7 +74,7 @@ const option2 = {
   canvasY: 200,
   // gridStroke: 1,//グリッドの線の太さ（0の場合はグリッドなし）
   // gridEmStroke: 2,//グリッド(太線)の線の太さ（0の場合はグリッドなし）
-  // grid_color: '#eee',
+  gridColor: '#2ee',
   zoom:'x',//true→x,y,xy、xy→xyのみ、x→xのみ、y→yのみ、false→すべてなし
   graphTitle: true,//凡例の有無
   // graphDirection: false,//凡例の有無
