@@ -16,7 +16,7 @@ var webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 
 var baseDir = './resource';
-var dist = './public';
+var dist = './docs';
 
 
 // browserSync sync

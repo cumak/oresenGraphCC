@@ -24,7 +24,7 @@ scriptタグでの読み込み
 
 モジュール版の読み込み
 ```javascript
-import oresenGraphCC from "js/modules/oresenGraphCC.js";
+import oresenGraphCC from "docs/js/modules/oresenGraphCC.js";
 ```
 
 ## HTML

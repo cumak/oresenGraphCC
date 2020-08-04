@@ -10,7 +10,7 @@ module.exports = {
     filename: "[name].js"
   },
   devServer: {
-    contentBase: 'public/',
+    contentBase: 'docs/',
     historyApiFallback: true,
     port: 3355,
     inline: true,
